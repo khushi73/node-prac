@@ -3,11 +3,11 @@
  on:
    pull_request:
     branches:
-      - prod
+      - production
       
    push:
      branches:
-       - prod
+       - production
        
  jobs:
   deploy-to-test:
