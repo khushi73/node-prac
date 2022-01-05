@@ -1,0 +1,25 @@
+ name: Laravel
+
+ on:
+   pull_request:
+    branches:
+      - prod
+      
+   push:
+     branches:
+       - prod
+       
+ jobs:
+  deploy-to-test:
+ 
+    if: github.ref == 'refs/heads/production'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy to test
+      uses: appleboy/ssh-action@master
+      with:
+        username: root
+        host: 68.183.88.222
+        password: ${{ secrets.SSH_PASSWORD }}
+        script: 'cd /var/www/strapi_prod && ./server_deploy.sh'
+         
