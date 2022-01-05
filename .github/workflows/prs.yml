@@ -16,7 +16,7 @@
     runs-on: ubuntu-latest
     steps:
     - name: Deploy to test
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v0.1.4
       with:
           host: 68.183.88.222
           username: root      
