@@ -16,10 +16,9 @@
     runs-on: ubuntu-latest
     steps:
     - name: Deploy to test
-      uses: appleboy/ssh-action@master
-      with:
-        username: root
-        host: 68.183.88.222
-        password: ${{ secrets.SSH_PASSWORD }}
-        script: 'cd /var/www/strapi_prod && ./server_deploy.sh'
-         
+      uses: easingthemes/ssh-deploy@v2.2.11
+      env:
+               SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+               username: root
+               host: 68.183.88.222      
+               script: 'cd /var/www/strapi_prod && ./server_deploy.sh'
