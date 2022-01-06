@@ -19,8 +19,9 @@
       uses: appleboy/ssh-action@v0.1.4
       with:
           host: 68.183.88.222
-          username: root      
-          passphrase: ${{ secrets.SSH_PASSWORD }}
+          username: root
+          key: ${{ deploy.ssh-key }}
+          password: ${{ secrets.SSH_PASSWORD }}
           script: 'cd /var/www/strapi_prod && ./server_deploy.sh'
 # #       uses: easingthemes/ssh-deploy@v2.2.11
 #       uses: appleboy/ssh-action@v0.1.3
